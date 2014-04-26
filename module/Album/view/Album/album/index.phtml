@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="albumList">
+                    <table style="width: 100%">
+                        <tr>
+                            <td><h3>Albums</h3></td>
+                            <td style="	text-align: right;"><a
+                                    href="<?php echo $this->url('albumAdd', array('action' => 'add')); ?>"><span
+                                        style="line-height:26px">Add New</span></a></td>
+                        </tr>
+                    </table>
+                    <div class="panel-group" id="accordion2">
+                        <?php foreach ($this->paginator as $album): ?>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <span><?php echo $album->id; ?>-) </span>
+                                        <a href="#<?php echo $this->escapeHtml($album->id); ?>" data-toggle="collapse"
+                                           data-parent="#accordion2">
+                                            <?php echo $this->escapeHtml($album->title); ?>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="<?php echo $this->escapeHtml($album->id); ?>"
+                                     class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <?php echo $this->escapeHtml($album->artist); ?>
+                                        <div class="actions">
+                                            <a href="<?php echo $this->url('albumEdit', array('action' => 'edit', 'id' => $album->id)); ?>"><span><?php echo $this->translate("Edit"); ?></span></a>
+                                            <span> | </span>
+                                            <a href="<?php echo $this->url('albumDelete', array('action' => 'edit', 'id' => $album->id)); ?>"><span><?php echo $this->translate("Delete"); ?></span></a>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php
+                        echo $this->paginationControl(
+                            $this->paginator,
+                            'sliding',
+                            array('partial/paginator.phtml', 'Album'),
+                            array(
+                                'route' => 'albumIndex'
+                            )
+                        );
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

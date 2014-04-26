@@ -1,0 +1,70 @@
+<?php echo $this->doctype(); ?>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+        ?>
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+
+        <!-- Scripts -->
+        <?php
+        echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+            ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+            ->prependFile($this->basePath() . '/js/contentHover.js')
+            ->prependFile($this->basePath() . '/js/main.js')
+            ->prependFile($this->basePath() . '/js/popover.js')
+            ->prependFile($this->basePath() . '/js/tooltip.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.min.js');
+
+        ?>
+    </head>
+    <body>
+    <div class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <a href="/" class="navbar-brand">Blogger</a>
+
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse navHeaderCollapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?php echo $this->url('indexPost',array('action' => 'index')); ?>">Index</a></li>
+                    <li><a href="<?php echo $this->url('blogPost',array('action' => 'post'));?>">Blog</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"  href="#">Dersler <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">PHP</a></li>
+                            <li><a href="#">JavaScript</a></li>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="navbar.php">News</a></li>
+                    <li><a href="#contact" data-toggle="modal">Kontak</a></li>
+                    <li><a href="#">Impressum</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <?php echo $this->content; ?>
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <p class="navbar-text pull-left">Serdar Degirmenci Bootstrap Temasi</p>
+            </div>
+        </div>
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>

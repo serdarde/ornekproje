@@ -1,0 +1,424 @@
+<div class="row" id="projects">
+    <div class="col col-md-12">
+<h1>Eigene Projecte</h1>
+
+<div class="row">
+    <?php foreach ($this->projects['Private'] as $project) : ?>
+     <div class="col col-md-3">
+        <a  data-toggle="modal" data-target="#p_<?php echo $project['id'];?>" class="image" href=""><img src="<?php echo $project['img'];?>"></a>
+        <div class="modal fade" id="p_<?php echo $project['id'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="myModalLabel"><?php echo $project['name'];?></h3>
+                    </div>
+                    <div class="modal-body">
+                     <?php if(isset($project['desc'])):?>
+                     <p><?php echo $project['desc'];?></p>
+                     <?php endif; ?>
+                      <table class="table table-responsive">
+                          <tr>
+                              <td><strong>Technologie</strong></td>
+                              <td><?php echo $project['technology'];?></td>
+                          </tr>
+                          <?php if (isset($project['task'])):?>
+                          <tr>
+                              <td><strong>Aufgabe</strong></td>
+                              <td><?php echo $project['task'];?></td>
+                          </tr>
+                          <?php endif; ?>
+
+                          <?php if (isset($project['date'])):?>
+                          <tr>
+                              <td><strong>Datum</strong></td>
+                              <td><?php echo $project['date'];?></td>
+                          </tr>
+                          <?php endif; ?>
+
+                          <?php if (isset($project['url'])):?>
+                          <tr>
+                              <td><strong>URL</strong></td>
+                              <td><span class="glyphicon glyphicon-home"></span>&nbsp; &nbsp;<a target="_blank" href="<?php echo $project['url'];?>"><?php echo str_replace(array("http://", 'https://', "www."), array(""), $project['url']);?></a></td>
+                          </tr>
+                          <?php endif; ?>
+
+                      </table>
+
+                        <h3>Screenshots</h3>
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+
+                                <div class="item active">
+                                    <img src="/img/quizkoenig_screnshoot1.png" alt="...">
+                                </div>
+
+                                <div class="item">
+                                    <img src="/img/quizkoenig_screnshoot2.png" alt="...">
+                                </div>
+
+                                <div class="item">
+                                    <img src="/img/quizkoenig_screnshoot3.png" alt="...">
+                                </div>
+
+                                <div class="item">
+                                    <img src="/img/quizkoenig_screnshoot4.png" alt="...">
+                                </div>
+
+                                <div class="item">
+                                    <img src="/img/quizkoenig_screnshoot5.png" alt="...">
+                                </div>
+
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Schlissen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <?php endforeach; ?>
+
+
+</div>
+
+
+
+<h1>Projekte</h1>
+<div class="row">
+    <div class="col col-md-4">
+        <a data-toggle="modal" data-target="#bbs" href="" class="image"> <img src="/img/bayer_bbs_logo.png"></a>
+        <div class="modal fade" id="bbs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="tweetstyleLabel">Bayer Busines Sevice</h3>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-responsive">
+                            <tr>
+                                <td><strong>CMS</strong></td>
+                                <td>Teamsite</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Technologie</strong></td>
+                                <td>PHP, LDAP, MySql, JQuery, CSS, Zend Frameword 1, Teamsite Templating, Perl</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Aufgabe</strong></td>
+                                <td>Programmieren verschiedene Module für Teamsite, Templating, erweitern von bestehende Komponenten. </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Datum</strong></td>
+                                <td>2013 - 2014</td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2"><a href="http://www.quizkoenig.net">im Auftrag von Anti-Design Gmbh</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col col-md-4">
+        <a data-toggle="modal" data-target="#vrbank"  class="image" href=""><img src="/img/vr_bank_altenburger.png" /></a>
+        <div class="modal fade" id="vrbank" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="tweetstyleLabel">VR-Altenburger Bank</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <table class="table table-responsive">
+                            <tr>
+                                <td><strong>CMS</strong></td>
+                                <td>Drupal</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Technologie</strong></td>
+                                <td>PHP, HTML, JQuery, CSS</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Aufgabe</strong></td>
+                                <td>Optimierung des Templates, Responsive Design implementierung, erweitern verschiedene Module.</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Datum</strong></td>
+                                <td>2013</td>
+                            </tr>
+                            <tr>
+                                <td><strong>URL</strong></td>
+                                <td><a href="https://ssl.vrbanknet.de/">www.vrbanknet.de</a></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">im Auftrag von <a href="http://www.quizkoenig.net">Unitb Technology GmbH</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col col-md-4">
+        <a class="image" href="" data-toggle="modal" data-target="#umzug123" ><img src="/img/umzug123.png" /></a>
+        <div class="modal fade" id="umzug123" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="tweetstyleLabel">Umzug123.de</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <table class="table table-responsive">
+
+                            <tr>
+                                <td><strong>Technologie</strong></td>
+                                <td>Zend Framework 1, PHP, MySql, Postgre, HTML, JQuery, CSS</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Aufgabe</strong></td>
+                                <td>
+                                    Komplette Programmierung des Front-Backends,
+                                    <ul>
+                                        <li>Eigene CMS (Sloft<sup>2</sup>)</li>
+                                        <li>Automatische Anfragen verteiler</li>
+                                        <li>Eigene Tracking & Analysierungs Scripts</li>
+                                        <li>Integrierte Warenwirtschaft Script</li>
+                                        <li>Anfragen Shop für Kunden</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Datum</strong></td>
+                                <td>2010 - 2013</td>
+                            </tr>
+                            <tr>
+                                <td><strong>URL</strong></td>
+                                <td><a href="http://umzug123.de/">www.umzug123.de</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+
+    <div class="col col-md-4">
+        <a data-toggle="modal" data-target="#halteverbot123"  href="" class="image"><img src="/img/halteverbot123.png" /></a>
+        <div class="modal fade" id="halteverbot123" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="tweetstyleLabel">Halteverbot123.de</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <table class="table table-responsive">
+
+                            <tr>
+                                <td><strong>Technologie</strong></td>
+                                <td>Zend Framework 1, PHP, MySql, HTML, JQuery, CSS</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Aufgabe</strong></td>
+                                <td>
+                                    Komplette Programmierung des Front-Backends,
+                                    <ul>
+                                        <li>Eigene CMS (Sloft<sup>2</sup>)</li>
+                                        <li>Integrierte Warenwirtschaft Script</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Datum</strong></td>
+                                <td>2010 - 2013</td>
+                            </tr>
+                            <tr>
+                                <td><strong>URL</strong></td>
+                                <td><a href="http://halteverbot123.de/">www.halteverbot123.de</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col col-md-4">
+        <a data-toggle="modal" data-target="#durudor"  href="" class="image"><img src="/img/durudor_logo.png"></a>
+        <div class="modal fade" id="durudor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="tweetstyleLabel">Durudor.com</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <table class="table table-responsive">
+
+                            <tr>
+                                <td><strong>CMS</strong></td>
+                                <td>Magento</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Technologie</strong></td>
+                                <td>PHP, MySql, HTML, JQuery, CSS</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Aufgabe</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>Programmieren eines Magento Modules</li>
+                                        <li>Templating </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Datum</strong></td>
+                                <td>2010 - 2013</td>
+                            </tr>
+                            <tr>
+                                <td><strong>URL</strong></td>
+                                <td><a href="http://durudor.com/">www.durudor.com</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col col-md-4">
+        <a href="" class="image" data-toggle="modal" data-target="#taxischein" ><img src="/img/taxischein4you_logo.png" /></a>
+        <div class="modal fade" id="durudor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="tweetstyleLabel">Durudor.com</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <table class="table table-responsive">
+
+                            <tr>
+                                <td><strong>CMS</strong></td>
+                                <td>Magento</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Technologie</strong></td>
+                                <td>PHP, MySql, HTML, JQuery, CSS</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Aufgabe</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>Programmieren eines Magento Modules</li>
+                                        <li>Templating </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Datum</strong></td>
+                                <td>2013</td>
+                            </tr>
+                            <tr>
+                                <td><strong>URL</strong></td>
+                                <td><a href="http://durudor.com/">www.durudor.com</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+<!--
+<ul>
+    <li><h2>Eigene Projeckte</h2></li>
+    <ul>
+        <li>TweetStyle</li>
+        <li>Facebook-Game</li>
+    </ul>
+    <li>
+        Kunden Projekte
+        <ul>
+            <li>Bayer - Websites</li>
+            <li>Vr-BVank</li>
+            <li>SKAT-BVank</li>
+            <li>Durudor.com</li>
+            <li>Umzug123.de</li>
+            <li>Halteverbot.123</li>
+            <li>Groupon [Shop]</li>
+            <li>Esanum</li>
+            <li>Taxischein</li>
+        </ul>
+    </li>
+
+    <li>Kleine Websites / Blogs</li>
+    <ul>
+        <li>iris-s-hafner.com</li>
+        <li>it-layer.com</li>
+        <li>tuc-e.de</li>
+        <li>rathaus-klause.de</li>
+        <li></li>
+    </ul>
+</ul>
+-->

@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="span-12">
+            <?php
+            $title = 'My task list';
+            $this->headTitle($title);
+            ?>
+            <h1><?php echo $this->escapeHtml($title); ?></h1>
+            <p><a href="<?php echo $this->url('task', array('action'=>'add'));?>">Add new item</a></p>
+
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Task</th>
+                    <th>Created</th>
+                    <th>Completed?</th>
+                    <th>Actions</th>
+                </tr>
+                <?php foreach ($tasks as $task): pa ($task)?>
+                    <tr>
+                        <td>
+                            <?php echo $task['title']; ?>
+                        </td>
+
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+            <?php
+
+            echo $this->paginationControl(
+                $this->tasks,
+                'sliding',
+                array('partial/paginator.phtml', 'Checklist'),
+                array(
+                    'route' => 'task'
+                )
+            );
+            ?>
+
+        </div>
+    </div>
+</div>

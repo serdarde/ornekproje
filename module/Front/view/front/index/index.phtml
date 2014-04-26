@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col col-md-3">
+        <div class="image">
+            <img class="border" src="/img/ersin-foto.png" title="Ersin Keser" alt="Ersin Keser" />
+        </div>
+    </div>
+    <div class="col col-md-9">
+        <h1>Ersin Keser </h1>
+        <h2>Freier Webentwickler</h2>
+        <div class="tech">
+            <div class="divider-top"></div>
+            <div class="technology">
+                <ul>
+                    <li>PHP</li>
+                    <li>MYSQL</li>
+                    <li>Zend Framework [1-2]</li>
+                    <li>Symfony [2]</li>
+                    <li>HTML [4-5]</li>
+                    <li>CSS [2-3]</li>
+                    <li>Javascript</li>
+                    <li>XML</li>
+                    <li>jQuery</li>
+                    <li>Wordpress</li>
+                    <li>Teamsite</li>
+                    <li>Magento</li>
+                    <li>Drupal</li>
+                    <li>Fondation</li>
+                    <li>Bootsrap</li>
+                    <li style="padding-bottom: 0px;">Joomla</li>
+                </ul>
+                <div class="cleaner"></div>
+            </div>
+            <div class="divider-bottom"></div>
+        </div>
+        <p>
+            Mein Name ist <b>Ersin Keser</b>, <br />ich bin freier <a href="">Webentwickler</a> aus <a href="?q=berlin">Berlin</a>.
+            Der Schwerpunkt meiner Arbeit liegt dabei in der Entwicklung moderner Webanwendungen, Programmierung individueller Content-Management-Lösungen und der Vermarktung von Online-Inhalten.
+            Zu meinen Kunden gehören überwiegend Web- und Werbeagenturen aus dem deutschsprachigen Raum. Diesen stehe ich in allen Belangen der modernen Webentwicklung als Ansprechpartner zur Verfügung und hoffe, auch Ihnen und ihren Kunden in Kürze mit Rat und Tat zur Seite zu stehen
+        </p>
+    </div>
+</div>
+
+<?php foreach ($this->pagination as $blog) : /* @var $blog BlogEntity */ ?>
+    <?php
+
+    ?>
+    <h3><?php echo $blog->getName(); ?></h3>
+    <div class="clearfix">
+
+        <?php #echo $blog->getTeaser(); ?>
+        <p><em>Name: <?php echo $blog->getName(); ?></em></p>
+
+    </div>
+    <hr />
+<?php endforeach; ?>
+<?php
+echo $this->paginationControl(
+    $this->pagination, 'Sliding', 'pagination/sliding',
+    array('route' => 'index/page')
+);
+?>
+<?php if ($this->userIsAllowed('blog-admin')): ?>
+    <p class="pull-center">
+        <?php $url = $this->url('blog-admin'); ?>
+        <a href="<?php echo $url; ?>" class="btn">Blogbeiträge verwalten</a>
+    </p>
+<?php endif; ?>

@@ -1,0 +1,55 @@
+<h1>Admin / Project</h1>
+<hr>
+<p>
+    <a href="<?php echo $this->url('adm-project/add', array('action' => 'add'));?>">
+        <span class="glyphicon glyphicon-plus-sign"></span> neues Projekt hinzufügen
+    </a>
+</p>
+
+<table class="table">
+    <tr class="headline" style="background: #666; color: #FFF">
+        <th>Name</th>
+        <th>Url</th>
+        <th>Firma</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Action</th>
+    </tr>
+<?php $i = 0; foreach ($this->projectList as $project) :
+
+      $backgrondColor = $i % 2 == 1 ? '#EEE' : '#CCC';
+
+    ?>
+    <?php
+
+
+    $urlDelete = $this->url(
+        'adm-project/delete', array('action' => 'update', 'id' => $project->getId())
+    );
+    $urlEdit = $this->url(
+        'adm-project/edit', array('action' => 'delete', 'id' => $project->getId())
+    );
+    ?>
+
+
+
+    <tr style="background: <?php echo $backgrondColor;?>">
+        <td><?php echo $project->getName();  ?></td>
+        <td><?php echo $project->getUrl();   ?> </td>
+        <td><?php echo $project->getFirma(); ?></td>
+        <td><?php echo $project->getDate();  ?></td>
+        <td><?php echo $project->getType();  ?></td>
+        <td>
+            <a href="<?php echo $urlEdit; ?>"   class="btn"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a href="<?php echo $urlDelete; ?>" class="btn"><span class="glyphicon glyphicon-remove"></span></a>
+            <a href="/admin/project/add-pictures/58" class="btn"><span class="glyphicon glyphicon-picture"></span></a>
+        </td>
+    </tr>
+<?php $i++; endforeach; ?>
+</table>
+<?php
+echo $this->paginationControl(
+    $this->projectList, 'Sliding', 'pagination/sliding',
+    array('route' => 'adm-project/page')
+);
+?>

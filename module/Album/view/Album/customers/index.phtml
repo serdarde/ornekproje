@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="span-12">
+            <h1>Customers</h1>
+            <a href="<?php echo $this->url("customersAdd",array('action' => "add")); ?>">
+                Add New
+            </a>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+                <?php foreach($this->customers as $customer): ?>
+                        <tr id="tr_<?php echo $customer->id; ?>">
+                            <td>
+                                <a href="<?php echo $this->url("customersShow",array('action' => "show",'id' => $customer->id)); ?>">
+                                    <?php echo $customer->name; ?>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="<?php echo $this->url("customersEdit",array('action' => "edit",'id' => $customer->id)); ?>">
+                                    <?php echo $this->translate("Edit");?>
+                                </a>
+                                <span>|</span>
+                                <a class="del_customer" id="<?php echo $customer->id; ?>_a" href="<?php echo $this->url("customersDelete",array('action' => "delete",'id' => $customer->id)); ?>">
+                                    <?php echo $this->translate("Delete");?>
+                                </a>
+                            </td>
+                        </tr>
+                <?php endforeach;?>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    jQuery(document).ready(function(){
+        jQuery(".del_customer").click(function(){
+            var $id = $(this).attr("id");
+            $id = parseInt($id);
+
+            if(confirm("Are you sure?")){
+                jQuery.get("/customers/delete/"+$id,function(data){
+                    if(data == "1"){
+                        jQuery("#tr_"+$id).remove();
+                    }
+                });
+            }
+
+            return false;
+        });
+    });
+</script>

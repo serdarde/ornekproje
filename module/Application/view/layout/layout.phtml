@@ -1,0 +1,95 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+        ?>
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+
+        <!-- Scripts -->
+        <?php
+        echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+            ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+            ->prependFile($this->basePath() . '/js/contentHover.js')
+            ->prependFile($this->basePath() . '/js/main.js')
+            ->prependFile($this->basePath() . '/js/popover.js')
+            ->prependFile($this->basePath() . '/js/tooltip.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.min.js');
+
+        ?>
+    </head>
+    <body>
+        <?php echo $this->content; ?>
+
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <p class="navbar-text pull-left">Serdar Degirmenci Bootstrap Temasi</p>
+                <a href="#" class="navbar-btn btn-danger btn pull-right">Youtube Videolari</a>
+            </div>
+        </div>
+
+        <div id="contact" class="modal fade" role ="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="POST" action="#" class="form-horizontal">
+                        <div class="modal-header">
+                            <h4>Bizimle Iletisime Gecin</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="contact-name" class="col-lg-2 control-label">Isim</label>
+                                <div class="col-lg-9" >
+                                    <input type="text" id="contact-name" class="form-control" placeholder="Tam Isminizi Giriniz"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email" class="col-lg-2 control-label">E-mail</label>
+                                <div class="col-lg-9" >
+                                    <input type="email" id="contact-email" class="form-control" placeholder="sen@ornek.com"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-msg" class="col-lg-2 control-label">Mesajiniz</label>
+                                <div class="col-lg-9" >
+                                    <textarea name="email" id="contact-msg" class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" class="btn btn-primary" data-dismiss="modal">Kapat</a>
+                            <button class="btn btn-danger">Gönder</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="success" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Baslik</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>In this tutorial, we will be adding a jumbotron (formerly known as a hero unit) to our site. The purpose of the jumbotron is for large messages that you want your viewers to see clearly, such as your latest video or blog post.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <span class="navbar-text pull-left">Serdar Degirmenci Yapti</span>
+                        <a href="" class="btn btn-default navbar-btn pull-right" data-dismiss="modal">Kapat</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>
